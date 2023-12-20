@@ -33,13 +33,16 @@ function readLocalStorage() {
 const formModal = $('#form-modal');
 const btnModal = $('#btn-form-modal');
 const formDatePicker = $('#project-due');
+const formClose = $('[name="modal-btn-close"]')
 
-function showFormModal(event) {
+function toggleFormModal(event) {
     console.log("Clicked on button: " + event.target.textContent.trim() )
     formModal.modal('toggle')
 }
 
-btnModal.on("click", showFormModal);
+btnModal.on("click", toggleFormModal);
+formClose.on("click", toggleFormModal);
+
 formDatePicker.datepicker();
 
 readLocalStorage();

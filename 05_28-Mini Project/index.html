@@ -48,7 +48,7 @@
                   <div class="modal-content">
                     <div class="modal-header bg-dark">
                       <h5 class="modal-title text-white" id="form-modal-head">Add A New Project</h5>
-                      <button type="button" class="bg-dark text-white" data-dismiss="modal" aria-label="Close">
+                      <button type="button" class="bg-dark text-white" data-dismiss="modal" aria-label="Close" name="modal-btn-close">
                         <span aria-hidden="true">&times;</span>
                       </button>
                     </div>
@@ -61,10 +61,12 @@
                         <div class="form-group">
                             <label for="project-type">Project Type</label>
                             <select class="form-control" id="project-type" placeholder="Enter the project's name" >
-                                <option value="1" class="">1</option>
-                                <option value="2" class="">2</option>
-                                <option value="3" class="">3</option>
-                                <option value="4" class="">4</option>
+                                <option value="1" class="">Web Application (Front End)</option>
+                                <option value="2" class="">Web Application (Back End)</option>
+                                <option value="3" class="">Web Application (Full Stack)</option>
+                                <option value="4" class="">Mobile Application</option>
+                                <option value="5" class="">Print Campaign</option>
+                                <option value="6" class="">Digital Marketing Campaign</option>
                             </select>
                         </div>
                         <div class="form-group">
@@ -74,8 +76,8 @@
                       </form>
                     </div>
                     <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                      <button type="button" class="btn btn-primary">Save changes</button>
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal" aria-label="Close" name="modal-btn-close">Close</button>
+                      <button type="button" class="btn btn-primary" id="project-save">Save changes</button>
                     </div>
                   </div>
                 </div>
