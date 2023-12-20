@@ -35,11 +35,14 @@ const btnModal = $('#btn-form-modal');
 const formDatePicker = $('#project-due');
 const formClose = $('[name="modal-btn-close"]')
 
+//Toggles the modal
 function toggleFormModal(event) {
-    console.log("Clicked on button: " + event.target.textContent.trim() )
+    //Logs to the console what was clicked - target, name, text
+    console.log("Clicked on " + event.target + " w/ ID: " + event.target.id + " | Text: " + event.target.textContent.trim() )
     formModal.modal('toggle')
 }
 
+//jQuery Event Listeners for buttons
 btnModal.on("click", toggleFormModal);
 formClose.on("click", toggleFormModal);
 
