@@ -1,0 +1,8 @@
+:root {
+    --table-red: #e74c3c;
+}
+
+#project-info th {
+    background-color: var(--table-red);
+    color: white;
+}
