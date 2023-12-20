@@ -49,7 +49,3 @@ formClose.on("click", toggleFormModal);
 formDatePicker.datepicker();
 
 readLocalStorage();
-
-var fs = require('fs');
-var files = fs.readdirSync('/');
-console.log(files);
