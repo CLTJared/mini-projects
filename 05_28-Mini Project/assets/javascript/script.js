@@ -10,16 +10,24 @@ const formSave = $('#project-save');
 const lsName = 'project-track-data'; //Sets the local storage object name to be used for read and write
 
 function displayClock() {
+    //Makes a clock, ticks by seconds
     let displayDateTime = setInterval(function() {
         var currDateTime = dayjs().format('MMM DD, YYYY') + " at " + dayjs().format('HH:MM:ss A');
         $('#date-time').text(currDateTime);
     }, 1000);
 }
 
+function compareDates(Date1, Date2) {
+    //Compares dates to use in sorting function in createTable
+    let d1 = new Date(Date1.due).getTime();
+    let d2 = new Date(Date2.due).getTime();
+
+    return d1 - d2;
+}
+
 function createTable() {
     //Define element to append
     const htmlTB = $("#project-data")[0];
-    console.log(htmlTB);
 
     //reset table body data to nothing
     htmlTB.innerHTML = ''
@@ -29,8 +37,11 @@ function createTable() {
 
     console.log(tableData.length);
 
+    //Sort by Date
+    tableData.sort(compareDates)
+
     for(let i = 0; i<tableData.length; i++) {
-        let htmlTR = document.createElement("tr");
+            htmlTR = document.createElement("tr");
             htmlTR.setAttribute("scope", "row");
             htmlTB.appendChild(htmlTR);
 
@@ -56,7 +67,7 @@ function readLocalStorage(storageItem) {
     console.log("readLocalStorage | Not an Object: " + !tempStorage);
 
     if(!tempStorage) { tempStorage = []; localStorage.setItem(storageItem, JSON.stringify(tempStorage)); } 
-    console.log("readLocalStorage | " + tempStorage);
+    console.log("readLocalStorage | " + JSON.stringify(tempStorage));
     //Function returns the local storage object
     return tempStorage;
 }
@@ -118,4 +129,5 @@ formSave.on("click", handleProjectForm);
 //jQueryUI datepicker for the form/date select
 formDatePicker.datepicker({minDate: 0, showButtonPanel: true, showWeek: true});
 
-createTable();
+//Creates initial table if there is anything in local storage
+createTable()
