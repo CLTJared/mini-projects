@@ -33,9 +33,6 @@ function createTable() {
     htmlTB.innerHTML = ''
 
     let tableData = readLocalStorage(lsName);
-    //console.log("createTable | " + JSON.stringify(tableData));
-
-    console.log(tableData.length);
 
     //Sort by Date
     tableData.sort(compareDates)
