@@ -8,39 +8,47 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
 </head>
-<body class="m-0 p-0">
+<body class="m-0 p-0" onload="displayClock()">
 
-    <header class="vw-100 m-0 p-5 bg-dark">
-        <h1 class="text-white">Project Tracker</h1>
-        <div id="date-time" class="text-white">&nbsp;</div>
+    <header class="vw-100 m-0 bg-dark text-center">
+        <h1 class="text-white pt-3">Project Tracker</h1>
+        <h3 class="text-white pb-5">Current Date & Time:
+            <div id="date-time" class="text-white">&nbsp;</div>
+        </h3>
     </header>
 
     <main class="row d-flex m-1 g-2">
-        <section class="col-12 col-md-3">
-            <div class="card">
+        <section class="col 12 col-md-3">
+            <div class="card width-200px">
                 <div class="card-header bg-dark text-white">Instructions</div>
-                <div class="card-body">
-                  <p class="card-title">Click the button below to open a form and provide the information for the following: </p>
-                  <ul class="list-group list-group-flush">
+                <div class="card-body p-0">
+                  <p class="card-title p-2">Click the button below to open a form and provide the information for the following: </p>
+                  <ul class="list-group list-group-flush p-0">
                     <li class="list-group-item">Project Name</li>
                     <li class="list-group-item">Project Type</li>
                     <li class="list-group-item">Due Date</li>
                   </ul>
-                  <button id="btn-form-modal" type="button" class="btn btn-primary col-12" data-toggle="modal" data-target="#form-modal">
-                    Add Project
-                </button>
+                  <div class="d-grid gap-2 col-11 mx-auto m-2">
+                    <button id="btn-form-modal" type="button" class="btn btn-primary" data-toggle="modal" data-target="#form-modal">
+                        Add Project
+                    </button>
+                  </div>
                 </div>
               </div>
         </section>
         <section class="col-12 col-md-9">
-            <table id="project-info" class="w-100 rounded">
-                <th class="w-33 p-2">Name</th>
-                <th class="w-33">Type</th>
-                <th class="w-33">Due</th>
-                <tbody id="project-data" class="">
 
+            <table id="project-info" class="w-100 table-hover">
+                <thead>
+                    <th class="w-33 p-2">Name</th>
+                    <th class="w-33 p-2">Type</th>
+                    <th class="w-33 p-2">Due</th>
+                </thead>
+                <tbody id="project-data" class="">
+                    <!-- JS will fill this area -->
                 </tbody>
             </table>
+
         </section>
         <section>
             <div class="modal fade" id="form-modal" tabindex="-1" role="dialog" aria-labelledby="form-modal" aria-hidden="true">
@@ -53,7 +61,7 @@
                       </button>
                     </div>
                     <div class="modal-body">
-                      <form id="modal-form-input">
+                      <form id="project-form" name="project-data-form">
                         <div class="form-group">
                             <label for="project-name">Project Name</label>
                             <input class="form-control" type="text" id="project-name" placeholder="Enter the project's name" />
@@ -61,12 +69,12 @@
                         <div class="form-group">
                             <label for="project-type">Project Type</label>
                             <select class="form-control" id="project-type" placeholder="Enter the project's name" >
-                                <option value="1" class="">Web Application (Front End)</option>
-                                <option value="2" class="">Web Application (Back End)</option>
-                                <option value="3" class="">Web Application (Full Stack)</option>
-                                <option value="4" class="">Mobile Application</option>
-                                <option value="5" class="">Print Campaign</option>
-                                <option value="6" class="">Digital Marketing Campaign</option>
+                                <option value="web-app-front" class="">Web Application (Front End)</option>
+                                <option value="web-app-back" class="">Web Application (Back End)</option>
+                                <option value="web-app-full" class="">Web Application (Full Stack)</option>
+                                <option value="mobile-app" class="">Mobile Application</option>
+                                <option value="print-campaign" class="">Print Campaign</option>
+                                <option value="digital-marketing" class="">Digital Marketing Campaign</option>
                             </select>
                         </div>
                         <div class="form-group">
@@ -77,7 +85,7 @@
                     </div>
                     <div class="modal-footer">
                       <button type="button" class="btn btn-secondary" data-dismiss="modal" aria-label="Close" name="modal-btn-close">Close</button>
-                      <button type="button" class="btn btn-primary" id="project-save">Save changes</button>
+                      <button type="submit" class="btn btn-primary" id="project-save" value="Submit">Save changes</button>
                     </div>
                   </div>
                 </div>
