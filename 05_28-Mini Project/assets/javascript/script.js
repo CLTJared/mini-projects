@@ -43,6 +43,7 @@ function createTable() {
     for(let i = 0; i<tableData.length; i++) {
             htmlTR = document.createElement("tr");
             htmlTR.setAttribute("scope", "row");
+            htmlTR.setAttribute("data-index", i);
             htmlTB.appendChild(htmlTR);
 
             htmlTD = document.createElement("td");
